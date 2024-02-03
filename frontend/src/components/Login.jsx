@@ -40,6 +40,7 @@ const Login = () => {
         username: username,
         password: password
       });
+      console.log(res.data);
       setCurrentUser(true);
       navigate("/")
       window.location.reload();

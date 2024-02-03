@@ -282,6 +282,7 @@ class ProfileAPIView(APIView):
             
    
 class MobileAPIView(APIView):
+    permission_classes = (permissions.AllowAny,)
     def get(self, request, data=None):
         brand_list = ['Oneplus', 'Apple', 'Samsung', 'Vivo', 'Oppo', 'Redmi', 'Realme', 'Google']
         mob_brand = data in brand_list

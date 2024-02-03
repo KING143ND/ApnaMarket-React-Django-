@@ -3,26 +3,44 @@ import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 
 const Mobile = () => {
-  const [mobiles, setMobiles] = useState([]);
-  const { filter } = useParams();
+  // const [mobiles, setMobiles] = useState([]);
+	const [mobiles, setMobile] = useState(null);
   useEffect(() => {
-    fetchMobileData();
-  }, [filter]);
-  const fetchMobileData = async () => {
-    try {
-      let response;
-      if (filter) {
+		const fetchData = async () => {
+			try {
+				const response = await axios.get("http://127.0.0.1:8000/api/mobile/");
+				setMobile(response.data);
+        console.log(response.data);
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
+		fetchData();
+	}, []);
+  // const { filter } = useParams();
+  // useEffect(() => {
+  //   fetchMobileData();
+  // }, []);
+  // const fetchMobileData = async () => {
+  //   try {
+      // let response;
+      // if (filter) {
         // Brand-specific request
-        response = await axios.get(`http://127.0.0.1:8000/api/mobile/filter=${filter}/`);
-      } else {
+        // response = await axios.get(`http://127.0.0.1:8000/api/mobile/filter=${filter}/`);
+      // } else {
+      // {
         // Generic request for all mobiles
-        response = await axios.get(`http://127.0.0.1:8000/api/mobile/`);
-      }
-      setMobiles(response.data.mobiles);
-    } catch (error) {
-      console.error('Error fetching mobile data:', error);
-    }
-  };
+      //   response = await axios.get(`http://127.0.0.1:8000/api/mobile/`);
+      // }
+  //     const response = await axios.get(
+  //       `http://localhost:8000/api/mobile/`
+  //     );
+  //     setMobiles(response.data.mobiles);
+  //     console.log(response.data.mobiles);
+  //   } catch (error) {
+  //     console.error('Error fetching mobile data:', error);
+  //   }
+  // };
   if (mobiles) {
   return (
     <div className="container my-3">

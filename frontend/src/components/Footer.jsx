@@ -3,21 +3,21 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import payment from "../images/payments.svg";
 const Footer = () => {
-  const [userData, setUserData] = useState(null);
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get("http://localhost:8000/user/");
-        setUserData(response.data);
-        console.log(response.data);
-        console.log(response.data.product_count_in_cart);
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-    fetchUserData();
-  }, []);
-  if (userData) {
+  // const [userData, setUserData] = useState(null);
+  // useEffect(() => {
+  //   const fetchUserData = async () => {
+  //     try {
+  //       const response = await axios.get("http://localhost:8000/api/user/");
+  //       setUserData(response.data);
+  //       console.log(response.data);
+  //       console.log(response.data.product_count_in_cart);
+  //     } catch (error) {
+  //       console.error("Error fetching user data:", error);
+  //     }
+  //   };
+  //   fetchUserData();
+  // }, []);
+  // if (userData) {
   return (
     <>
       <footer className="bg-navbar mt-5 pt-3 bd-footer bg-body-tertiary">
@@ -42,20 +42,20 @@ const Footer = () => {
             <div className="col-6 col-lg-2 offset-lg-1 mb-3">
               <h5>Links</h5>
               <ul className="list-unstyled">
-              {userData.admin == true && userData.admin && (
+              {/* {userData.admin == true && userData.admin && ( */}
                 <li className="mb-2">
                   <Link className="text-white" to="/admin">
                     Admin
                   </Link>
                 </li>
-              )}
-              {userData.admin == false && !userData.admin && (
+              {/* )} */}
+              {/* {userData.admin == false && !userData.admin && ( */}
                 <li className="mb-2">
                   <Link className="text-white" to="/">
                     Home
                   </Link>
                 </li>
-                )}
+                {/* )} */}
                 <li className="mb-2">
                   <Link className="text-white" to="/about">
                     About Us
@@ -78,7 +78,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            {userData.user == true && userData.user && (
+            {/* {userData.user == true && userData.user && ( */}
             <div className="col-6 col-lg-2 mb-3">
               <h5>Account</h5>
               <ul className="list-unstyled">
@@ -109,8 +109,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            )}
-            {userData.user == false && !userData.user && (
+            {/* )} */}
+            {/* {userData.user == false && !userData.user && ( */}
             <div className="col-6 col-lg-2 mb-3">
               <h5>Explore</h5>
               <ul className="list-unstyled">
@@ -141,7 +141,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            )}
+            {/* )} */}
             <div className="col-6 col-lg-2 mb-3">
               <h5>Electronics</h5>
               <ul className="list-unstyled">
@@ -240,7 +240,7 @@ const Footer = () => {
       </footer>
     </>
   );
-  }
+  // }
 };
 
 export default Footer;

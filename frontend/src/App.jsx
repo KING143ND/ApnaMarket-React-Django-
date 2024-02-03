@@ -83,13 +83,14 @@ const RouteHandler = () => {
     "/terms",
     "/privacy",
   ];
-  const shouldShowNavbarAndFooter =
-    showNavbarAndFooterRoutes.includes(location.pathname) ||
-    location.pathname.match(/^\/product-detail\/.*$/);
+  // const shouldShowNavbarAndFooter =
+  //   showNavbarAndFooterRoutes.includes(location.pathname) ||
+  //   location.pathname.match(/^\/product-detail\/.*$/);
   
   return (
     <>
-      {shouldShowNavbarAndFooter && <Navbar />}
+      {/* {shouldShowNavbarAndFooter && <Navbar />} */}
+      <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/login" element={<Login />} />
@@ -163,7 +164,8 @@ const RouteHandler = () => {
         <Route exact path="/orders/download-invoice/1" element={<Invoice />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      {shouldShowNavbarAndFooter && <Footer />}
+      {/* {shouldShowNavbarAndFooter && <Footer />} */}
+      <Footer />
     </>
   );
 };
